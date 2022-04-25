@@ -17,14 +17,11 @@ const Home = () => {
 
     useEffect(() =>{
         console.log ('use effect');
-        console.log(name);
-    }, [name]);
+    }, []);
 
     return (
         <div className="home">
-          <BlogList blogs={blogs} title = "Lahat ng Blogs!" handleDelete={handleDelete} />
-          <button onClick={() => setName('raymund')}>Change Name</button>
-          <p>{ name }</p>
+        {blogs && <BlogList blogs={blogs} title = "Lahat ng Blogs!"/>}
         </div>
     ) 
 }

@@ -1,15 +1,29 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 
 const Create = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('Emong');
+    const [isPEnding, setIsPending] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
       e.preventDefault();
       const blog = { title, body, author};
 
-      console.log(blog);
+      setIsPending(true);
+
+      fetch('http://localhost:8000/blogs', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(blog)
+      }) .then(() => {
+        console.log('new blog added');
+        setIsPending(false);
+        navigate("/");
+      }) //I useNavigate here instead of useHistory bec. there's an error
     }
 
     return (
@@ -38,7 +52,8 @@ const Create = () => {
                   <option value="Raymund">Raymund</option>
                   <option value="Mamon">Mamon</option>
                 </select>
-                <button>Add blog</button>
+                { !isPEnding && <button>Add blog</button> }
+                { isPEnding && <button disabled>Adding blog...</button> }
                 <p>{ title }</p>
                 <p>{ body }</p>
                 <p>{ author }</p>

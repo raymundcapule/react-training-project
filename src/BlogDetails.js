@@ -23,6 +23,7 @@ const BlogDetails = () => {
                 <article>
                  <h2> { blog.title }</h2>
                  <p>Written by{ blog.author }</p>
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="react logo" width="80" height="80" />
                  <div>{ blog.body }</div>
                  <button onClick={handleClick}>Delete</button>
                 </article>

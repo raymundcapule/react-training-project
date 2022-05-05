@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-//import { useHistory } from 'react-router-dom';
 
 const Create = () => {
     const [title, setTitle] = useState('');
@@ -23,7 +22,7 @@ const Create = () => {
         console.log('new blog added');
         setIsPending(false);
         navigate("/");
-      }) //I useNavigate here instead of useHistory bec. there's an error
+      }) 
     }
 
     return (

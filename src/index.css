@@ -104,3 +104,10 @@
   border-radius: 8px;
   cursor: pointer;
 }
+.not-found h2 {
+  color: red;
+  font-size: 40px;
+}
+.not-found a:link {
+  color: blue;
+}

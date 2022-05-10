@@ -107,4 +107,8 @@
 .navbar img {
   vertical-align:middle;margin:0px 20px
 }
-
+.home button {
+  background: #3f51f5;
+  color: white;
+  opacity: 0.7;
+}

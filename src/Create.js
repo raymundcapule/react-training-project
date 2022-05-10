@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { addContext } from "./helper/Context";
+import { useContext } from "react";
 
 const Create = () => {
     const [title, setTitle] = useState('');
@@ -7,6 +9,7 @@ const Create = () => {
     const [author, setAuthor] = useState('Emong');
     const [isPEnding, setIsPending] = useState(false);
     const navigate = useNavigate();
+    const { data, setData } = useContext(addContext);
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -56,6 +59,7 @@ const Create = () => {
                 <p>{ title }</p>
                 <p>{ body }</p>
                 <p>{ author }</p>
+                <div>{ data }</div>
             </form>
         </div>
     );
